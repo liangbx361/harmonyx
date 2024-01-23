@@ -1,0 +1,41 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/lbx/.ohos/config/auto_debug_harmonyx_com.liangbx.harmonyx_70086000304845824.cer",
+          "storePassword": "0000001BF45D1A051FD2B79DC250E28A8EDBEECDA00CFF97423461D1965BF471A330A648010075B8BBBB4B",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B11EACA66D0206E6BAB4C25DC6E28A3D53F385A8C31660200A057B11C5BCD20E280E841FBF921BE",
+          "profile": "/Users/lbx/.ohos/config/auto_debug_harmonyx_com.liangbx.harmonyx_70086000304845824.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/lbx/.ohos/config/auto_debug_harmonyx_com.liangbx.harmonyx_70086000304845824.p12"
+        }
+      }
+    ],
+    "compileSdkVersion": 9,
+    "compatibleSdkVersion": 9,
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
