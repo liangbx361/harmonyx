@@ -3,6 +3,8 @@ import hilog from '@ohos.hilog';
 import UIAbility from '@ohos.app.ability.UIAbility';
 import type Want from '@ohos.app.ability.Want';
 import type window from '@ohos.window';
+import DataManager from '../data/DataManager';
+import AppRoutes from '../routes/AppRoutes';
 
 /**
  * Lift cycle management of Ability.
@@ -10,6 +12,7 @@ import type window from '@ohos.window';
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
+    DataManager.init(this.context);
   }
 
   onDestroy(): void {
@@ -20,7 +23,7 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    windowStage.loadContent("pages/SplashScreenPage", (err, data) => {
+    windowStage.loadContent(AppRoutes.SPLASH, (err, data) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;

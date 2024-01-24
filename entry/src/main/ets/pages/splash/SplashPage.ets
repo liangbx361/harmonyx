@@ -1,6 +1,7 @@
 import router from '@ohos.router';
-import CopyrightComponent from '../view/CopyrightComponent';
-import { CommonConstants } from '../common/constants/CommonConstants';
+import { CommonConstants } from '../../common/constants/CommonConstants';
+import CopyrightComponent from '../../components/CopyrightComponent';
+import AppRoutes from '../../routes/AppRoutes';
 
 /**
  * SplashScreenPage is the entry of the application and shows how to develop a front page.
@@ -9,7 +10,7 @@ import { CommonConstants } from '../common/constants/CommonConstants';
  */
 @Entry
 @Component
-struct SplashScreenPage {
+struct SplashPage {
   @State pageShowTime: number = CommonConstants.TIME_DEFAULT_VALUE;
   @State intervalID: number = CommonConstants.INTERVAL_ID_DEFAULT;
 
@@ -17,21 +18,21 @@ struct SplashScreenPage {
     Column() {
       Stack({ alignContent: Alignment.TopStart }) {
         Image($r('app.media.ic_splash_page_background'))
-          .width(CommonConstants.IMAGE_WIDTH)
-          .height(CommonConstants.IMAGE_HEIGHT)
+          .width('100%')
+          .height('100%')
 
         AdvertiseIcon()
 
         SkipButton({ secondsCount: (CommonConstants.DELAY_SECONDS - this.pageShowTime) })
       }
       .layoutWeight(CommonConstants.STACK_LAYOUT_WEIGHT)
-      .width(CommonConstants.STACK_WIDTH)
+      .width('100%')
 
       CopyrightComponent()
     }
     .alignItems(HorizontalAlign.Start)
-    .width(CommonConstants.COLUMN_WIDTH)
-    .height(CommonConstants.COLUMN_HEIGHT)
+    .width('100%')
+    .height('100%')
   }
 
   /**
@@ -42,7 +43,7 @@ struct SplashScreenPage {
       this.pageShowTime += CommonConstants.INCREMENT_VALUE;
       if (this.pageShowTime > CommonConstants.DELAY_SECONDS) {
         router.replaceUrl({
-          url: CommonConstants.MAIN_PAGE_URL
+          url: AppRoutes.MAIN,
         });
       }
     }, CommonConstants.INTERVAL_DELAY);

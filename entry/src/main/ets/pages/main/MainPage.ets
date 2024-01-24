@@ -1,4 +1,5 @@
-import { CommonConstants } from '../common/constants/CommonConstants';
+
+import { CommonConstants } from '../../common/constants/CommonConstants'
 
 /**
  * The MainPage that is routed as the SplashScreenPage.
